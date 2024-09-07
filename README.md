@@ -205,56 +205,27 @@ In the Baseline model, we used the Decision Tree Classifier model. However, afte
 
 ### Added Features and Feature Engineering
 
-`MONTH` (Nominal):
+`MONTH` (Nominal): To conduct feature engineering on the `MONTH` feature, I implemented One-Hot Encoding. The reason I decided to use the `MONTH` feature was because the feature is able to categorize seasons in the year without having a seasons column. The `MONTH` feature can dictate when its spring, summer, winter, and fall where for example in the winter, outages can be caused by blizzards and bad snow storms.
 
-`POPULATION` (Quantitative):
+`POPULATION` (Quantitative): To conduct feature engineering on the `POPULATION` feature, I implemented Binarization. I differentiated which regions had a high population and a low population by using the Median of Population as the threshold. The reason I used population as a feature as population can dictate how populus a region is. This can help determine if a place is more likely to intentional attacks and public appeal or unintentional causes like
+equipment failure which can be become more frequent as more resources are being used.
 
-`INDUSTRY.CONSUMPION` (Quantitative): 
+### Hyperparameter Searching
 
-### Model Selection and Hyperparameter Tuning
+The hyperparamters that ended up performing the best were:
 
-To select the best model, we considered several different modeling algorithms and performed hyperparameter tuning using `GridSearchCV`. The algorithms considered include:
+`n_estimator` (The number of Trees per forest): 41
 
-- **Linear Regression**
-- **Random Forest Regressor**
-- **Lasso**
-- **Support Vector Regressor (SVR)**
+`depth` (The depth of each tree): 34
 
-We decided to use `RandomForestRegressor` as our final model based on its performance during the tuning process. Below, we describe the hyperparameters tuned and the rationale behind their selection:
+### Evaluation
 
-- **Number of Estimators**: Number of trees in the forest. Tested values were [100, 200].
-- **Maximum Depth**: Maximum depth of the trees. Tested values were [10, 20].
-- **min_samples_split**: Minimum number of samples required to split an internal node. Tested values were [2, 5].
+In conclusion the final model ended with a F1 score of 0.794. That is an 7.4% improvement from the base model. The reasoning for this improvement in F1-score is due to the fact that 2 relevant features were added to the model and hyperparameter tuning was implemented.
 
-The best performing hyperparameters that resulted in the lowest Root Mean Squared Error (RMSE) achieved during the cross-validation process in GridSearchCV were:
-- n_estimators: 200
-- max_depth: 10
-- min_samples_split: 10
-
-### Training and Evaluation
-
-To identify the most effective features, we trained our model five times using various combinations of features. We then created a dictionary, where the keys represent the RMSE values and the corresponding feature combinations are the values. Finally, we sorted the dictionary in ascending order based on RMSE, ensuring the smallest RMSE appears first.
-
-We trained our model using the same unseen and seen datasets from the baseline model. This ensured that the evaluation metric obtained on the final model could be compared to the baseline model's on the basis of the model itself and not the dataset it was trained on.
-
-The RMSE values for all of the different models are shown in the plot below:
-
-As you can see in the graph, the model with the lowest RSME has the features `CUSTOMERS.AFFECTED`, `CLIMATE.REGION`, `NERC.REGION`, `ANOMALY.LEVEL`, `CAUSE.CATEGORY`
-
-![RMSE PLOT](assets/Screenshot 2024-06-12 at 7.22.29 PM.png)
-
-### Conclusion
-
-The final model showed an improvement over the baseline model. The engineered features and tuned hyperparameters contributed to better model performance. The `RandomForestRegressor` was chosen as the final model due to its ability to handle complex interactions between features and its robustness to overfitting when properly tuned.
-
-The plot above illustrates the RMSE values for different models, highlighting the improvement achieved with our final model.
-
-By carefully selecting features and tuning hyperparameters, we were able to create a model that performs better than the baseline, thus demonstrating the importance of thoughtful feature engineering and model selection in predictive modeling.
-
-### Fairness Analysis
+## Fairness Analysis
 
 ## Evaluation Metric
-- The evaluation metric used is the Root Mean Squared Error (RMSE), a standard measure for assessing the accuracy of a regression model. It quantifies the difference between the predicted values and the actual values.
+The metric we will be using is precision.
 
 ## Group Definition
 - **Group X** = not_intentional (contains severe weather, system operability disruption, equipment failure and fuel supply emergency)
