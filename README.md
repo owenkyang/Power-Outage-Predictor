@@ -14,16 +14,17 @@ According to the Department of Energy, a major outage is defined as a power outa
 | `NERC.REGION` | North American Electric Reliability Corporation (NERC) regions involved in the outage event |
 | `CUSTOMERS.AFFECTED` | Number of customers affected by the power outage event |
 | `OUTAGE.DURATION` | Duration of outage events (in minutes) |
-| `CAUSE.CATEGORY` | Categories of all the events causing the major power outages |
-| `U.S._STATE` | State in which the outage occurred |
 | `POPULATION` | Population of the affected area |
+| `U.S._STATE` | State in which the outage occurred |
+| `CAUSE.CATEGORY` | Categories of all the events causing the major power outages |
 | `DEMAND.LOSS.MW` | Demand loss in megawatts |
-| `MONTH` | Month in which the outage occurred |
 | `YEAR` | Year in which the outage occurred |
-| 'IND.PERCEN' | Percentage of industrial electricity consumption compared to the total electricity consumption in the state (in %) |
-| 'IND.SALES' | Electricity consumption in the industrial sector (megawatt-hour) |
-| 'COM.PERCEN' | Percentage of commercial electricity consumption compared to the total electricity consumption in the state (in %) |
-| 'COM.SALES' | Electricity consumption in the commercial sector (megawatt-hour) |
+| `MONTH` | Month in which the outage occurred |
+| `DEMAND.LOSS.MW` | Demand loss in megawatts |
+| `IND.PERCEN` | Percentage of industrial electricity consumption compared to the total electricity consumption in the state (in %) |
+| `IND.SALES` | Electricity consumption in the industrial sector (megawatt-hour) |
+| `COM.PERCEN` | Percentage of commercial electricity consumption compared to the total electricity consumption in the state (in %) |
+| `COM.SALES` | Electricity consumption in the commercial sector (megawatt-hour) |
 
 ## Data Cleaning and Exploratory Data Analysis
 
