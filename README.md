@@ -62,37 +62,38 @@ Next, I conducted EDA on the cleaned data set to discover patterns and seek out 
 #### Univariate Analysis
 
 <iframe src="assets/uni1.html" width="800" height="600" frameborder="0"></iframe>
-
 The graph above represents the distribution of industry energy consumption percentage or non-residential energy consumption percentage. The x-axis displays the percentage bins with the y-axis displays the frequency of those percentages. 
 
 **Observations:**
 The distribution is almost normal, with most consumption percentages between 60% and 65%. This shows that the industrial and commercial sectors used more energy than the residential sector in most regions.
 
 <iframe src="assets/uni2.html" width="800" height="600" frameborder="0"></iframe>
-
 The above graph displays the distribution of outages per cause category. The x-axis displays the different cause categories and the y-axis displays the amount of outages that are caused by each category.
 
 **Observations:**
 We can see that severe weather followed by intentional attacks cause most outages, the cause we're most interested in. We then see that the outages caused by the other factors are quite rare compared to severe weather and intentional attacks.
 
 <iframe src="assets/map2.html" width="800" height="600" frameborder="0"></iframe>
-
 I also wanted to see the distribution of the number of outages per state. The graph above displays how many outages happened in each U.S. State.
 
 **Observations:**
 We can see that most outages happen in California and Texas!
 
 #### Bivariate Analysis
-**Observations:**
-- The plot below shows a wide dispersion of points, indicating significant variability in both outage duration and the number of customers affected.
-- There are several clusters of points, especially around shorter outage durations (less than 1000 minutes) and varying numbers of affected customers.
-- Some points represent extreme values, with outages lasting up to 7000 minutes and affecting up to 300,000 customers.
 
-<iframe src="assets/outage_duration_vs_customers_affected.html" width="800" height="600" frameborder="0"></iframe>
+<iframe src="assets/bi1.html" width="800" height="600" frameborder="0"></iframe>
+The graph above displays the relationship between Industry Energy Consumption and Years.
+
+**Observations:**
+There seems to be no coherent trend between years and industry energy consumption!
+
+<iframe src="assets/bi3.html" width="800" height="600" frameborder="0"></iframe>
+The graph above displays the Industry Energy Consumption percentage for each outage cause.
+
+**Observations:**
+We can see that both outages caused by severe weather and intentional attacks both typically have a higher industrial energy consumption percentage!
 
 #### Interesting Aggregates
-The pivot table displayed below shows the impact of power outages in different U.S. climate regions. It summarizes the number of outages, the average length of outage duration, and the average number of customers affected per outage. This analysis provides insights into how different climate regions are affected by power outages and the typical duration of these outages.
-
 | CAUSE.CATEGORY                |   INDUSTRY.CONSUMPTION |   INDUSTRY.PERCENTAGE |   OUTAGE.DURATION |
 |:------------------------------|-----------------------:|----------------------:|------------------:|
 | equipment failure             |            9.6593e+06  |               63.3537 |          1884.28  |
@@ -103,15 +104,11 @@ The pivot table displayed below shows the impact of power outages in different U
 | severe weather                |            7.41852e+06 |               62.1058 |          3852.64  |
 | system operability disruption |            1.04029e+07 |               62.8009 |           788.603 |
 
-- **Central**: The Central region experienced 166 outages with an average duration of approximately 1424.87 minutes. The average number of customers affected per outage in this region can provide further insights.
-- **East North Central**: This region had 110 outages with a significantly higher average duration of 2666.07 minutes, indicating potentially more severe outages or slower restoration times.
-- **Northeast**: With 296 outages, the Northeast region saw an average outage duration of 1394.34 minutes, which is relatively moderate compared to other regions.
-- **Northwest**: The Northwest experienced 125 outages with the shortest average duration of 1004.59 minutes, suggesting more efficient outage management.
-- **South**: The South region had 190 outages with an average duration of 1211.80 minutes.
+The aggregated dataframe above displays the average Industry Consumption, the average Industry Consumption Percentage, and the Outage Duration for each outage cause category.
 
-The pivot table reveals that different climate regions experience varying frequencies and durations of power outages. These differences could be attributed to regional climatic conditions, infrastructure robustness, and efficiency of the power restoration processes.
+We can see that equipment failure and public appeal have the highest average amount of industry consumption. Additionally we can see that outages caused by islanding have the highest industry consumption percentage on average, and that outages caused by fuel supply emergancy last the longest on average.
 
-By analyzing this data, utility companies and policymakers can identify regions that may require improved infrastructure or more efficient restoration protocols to reduce the impact of power outages on customers.
+The aggregated table reveals that outages caused by different factors can result in different outage durations. The table also reveals that there might be an underlying relationship between Industry Energy Consumption levels and the cause of an outage. By looking at this data, 
 
 ## Assessment of Missingness
 
