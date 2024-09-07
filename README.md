@@ -70,10 +70,17 @@ The distribution is almost normal, with most consumption percentages between 60%
 
 <iframe src="assets/uni2.html" width="800" height="600" frameborder="0"></iframe>
 
-The above graph displays the 
+The above graph displays the distribution of outages per cause category. The x-axis displays the different cause categories and the y-axis displays the amount of outages that are caused by each category.
 
+**Observations:**
+We can see that severe weather followed by intentional attacks cause most outages, the cause we're most interested in. We then see that the outages caused by the other factors are quite rare compared to severe weather and intentional attacks.
 
+<iframe src="assets/map2.html" width="800" height="600" frameborder="0"></iframe>
 
+I also wanted to see the distribution of the number of outages per state. The graph above displays how many outages happened in each U.S. State.
+
+**Observations:**
+We can see that most outages happen in California and Texas!
 
 #### Bivariate Analysis
 **Observations:**
@@ -114,26 +121,6 @@ To determine whether data are likely NMAR (Not Missing At Random), we must reaso
 ### Missingness Dependency
 We analyzed the dependency of the missingness of the `OUTAGE.DURATION` column on other columns in the dataset by performing permutation tests.
 
-### Permutation Test Results
-#### Categorical Column: CAUSE.CATEGORY
-- Observed TVD Statistic: 0.2520091580226147
-- P-value: 0.0
-
-#### Categorical Column: CLIMATE.REGION
-- Observed TVD Statistic: 0.2535212947392274
-- P-value: 0.004
-
-#### Categorical Column: NERC.REGION
-- Observed TVD Statistic: 0.3153910849453322
-- P-value: 0.0
-
-#### Categorical Column: ANOMALY.LEVEL
-- Observed TVD Statistic: 0.4918007853547923
-- P-value: 0.0
-
-#### Categorical Column: MONTH
-- Observed TVD Statistic: 0.22267850229522704
-- P-value: 0.118
 
 ### Interpretation
 The p-values obtained from the permutation tests indicate that the missingness of the `OUTAGE.DURATION` column is dependent on `CAUSE.CATEGORY`, `CLIMATE.REGION`, `NERC.REGION`, and `ANOMALY.LEVEL` (p-value < 0.05). However, the missingness of `OUTAGE.DURATION` is not dependent on `MONTH` (p-value = 0.118).
