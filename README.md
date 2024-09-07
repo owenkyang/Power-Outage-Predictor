@@ -68,13 +68,13 @@ The original raw dataset contains 1534 rows, corresponding to 1534 outages, and 
 ### Cleaned Data Example
 Here is an example of the cleaned dataset:
 
-| OUTAGE_START_DATETIME  | OUTAGE_RESTORATION_DATETIME | NERC.REGION | CUSTOMERS.AFFECTED | OUTAGE.DURATION | CLIMATE.REGION     | CAUSE.CATEGORY    | ANOMALY.LEVEL | U.S._STATE | POPULATION | DEMAND.LOSS.MW | MONTH | YEAR  |
-|------------------------|-----------------------------|-------------|--------------------|-----------------|--------------------|-------------------|---------------|------------|------------|----------------|-------|-------|
-| 2011-07-01 17:00:00    | 2011-07-03 20:00:00         | MRO         | 70000.000000       | 3060.0          | East North Central | severe weather    | -0.3          | Minnesota  | 5348119.0  | 536.287093     | 7.0   | 2011  |
-| 2014-05-11 18:38:00    | 2014-05-11 18:39:00         | MRO         | 143456.222731      | 1.0             | East North Central | intentional attack | -0.1          | Minnesota  | 5457125.0  | 536.287093     | 5.0   | 2014  |
-| 2010-10-26 20:00:00    | 2010-10-28 22:00:00         | MRO         | 70000.000000       | 3000.0          | East North Central | severe weather    | -1.5          | Minnesota  | 5310903.0  | 536.287093     | 10.0  | 2010  |
-| 2012-06-19 04:30:00    | 2012-06-20 23:00:00         | MRO         | 68200.000000       | 2550.0          | East North Central | severe weather    | -0.1          | Minnesota  | 5380443.0  | 536.287093     | 6.0   | 2012  |
-| 2015-07-18 02:00:00    | 2015-07-19 07:00:00         | MRO         | 250000.000000      | 1740.0          | East North Central | severe weather    | 1.2           | Minnesota  | 5489594.0  | 250.000000     | 7.0   | 2015  |
+|   YEAR |   MONTH | US.STATE   |   POPULATION |   OUTAGE.DURATION |   DEMAND.LOSS.MW | CAUSE.CATEGORY     |   CUSTOMERS.AFFECTED | NERC.REGION   |   INDUSTRY.CONSUMPTION |   INDUSTRY.PERCENTAGE |
+|-------:|--------:|:-----------|-------------:|------------------:|-----------------:|:-------------------|---------------------:|:--------------|-----------------------:|----------------------:|
+|   2011 |       7 | Minnesota  |  5.34812e+06 |              3060 |          536.287 | severe weather     |                70000 | MRO           |            4.22806e+06 |               64.4275 |
+|   2014 |       5 | Minnesota  |  5.45712e+06 |                 1 |          536.287 | intentional attack |               143456 | MRO           |            3.69568e+06 |               69.938  |
+|   2010 |      10 | Minnesota  |  5.3109e+06  |              3000 |          536.287 | severe weather     |                70000 | MRO           |            3.75298e+06 |               71.867  |
+|   2012 |       6 | Minnesota  |  5.38044e+06 |              2550 |          536.287 | severe weather     |                68200 | MRO           |            3.9342e+06  |               67.9827 |
+|   2015 |       7 | Minnesota  |  5.48959e+06 |              1740 |          250     | severe weather     |               250000 | MRO           |            3.93955e+06 |               65.9853 |
 
 ### Exploratory Data Analysis (EDA)
 We conducted EDA to understand the distribution and characteristics of the outages, visualizing the data to identify key trends and patterns.
