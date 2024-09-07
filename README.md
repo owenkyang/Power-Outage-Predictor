@@ -70,6 +70,8 @@ The distribution is almost normal, with most consumption percentages between 60%
 
 <iframe src="assets/uni2.html" width="800" height="600" frameborder="0"></iframe>
 
+The above graph displays the 
+
 
 
 
@@ -84,13 +86,15 @@ The distribution is almost normal, with most consumption percentages between 60%
 #### Interesting Aggregates
 The pivot table displayed below shows the impact of power outages in different U.S. climate regions. It summarizes the number of outages, the average length of outage duration, and the average number of customers affected per outage. This analysis provides insights into how different climate regions are affected by power outages and the typical duration of these outages.
 
-| CLIMATE.REGION     | Amount of Outages | Average Length of Outage Duration (minutes) | Average Number of Customers Affected |
-|--------------------|-------------------|---------------------------------------------|---------------------------------------|
-| Central            | 166               | 1424.87                                     | [Insert Value]                        |
-| East North Central | 110               | 2666.07                                     | [Insert Value]                        |
-| Northeast          | 296               | 1394.34                                     | [Insert Value]                        |
-| Northwest          | 125               | 1004.59                                     | [Insert Value]                        |
-| South              | 190               | 1211.80                                     | [Insert Value]                        |
+| CAUSE.CATEGORY                |   INDUSTRY.CONSUMPTION |   INDUSTRY.PERCENTAGE |   OUTAGE.DURATION |
+|:------------------------------|-----------------------:|----------------------:|------------------:|
+| equipment failure             |            9.6593e+06  |               63.3537 |          1884.28  |
+| fuel supply emergency         |            1.02709e+07 |               64.296  |         10716.1   |
+| intentional attack            |            4.41917e+06 |               62.9796 |           508.763 |
+| islanding                     |            1.00101e+07 |               66.0062 |           305.974 |
+| public appeal                 |            9.94388e+06 |               59.8695 |          1468.45  |
+| severe weather                |            7.41852e+06 |               62.1058 |          3852.64  |
+| system operability disruption |            1.04029e+07 |               62.8009 |           788.603 |
 
 - **Central**: The Central region experienced 166 outages with an average duration of approximately 1424.87 minutes. The average number of customers affected per outage in this region can provide further insights.
 - **East North Central**: This region had 110 outages with a significantly higher average duration of 2666.07 minutes, indicating potentially more severe outages or slower restoration times.
