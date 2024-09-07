@@ -5,7 +5,7 @@ by Owen Yang
 ## Introduction
 The United States Department of Energy reports that the U.S economy loses $150 Billion annually from power outages [(Source)](https://www.energy.gov/ne/articles/department-energy-report-explores-us-advanced-small-modular-reactors-boost-grid#:~:text=of%20Nuclear%20Energy-,Department%20of%20Energy%20Report%20Explores%20U.S.%20Advanced,Reactors%20to%20Boost%20Grid%20Resiliency&text=The%20U.S.%20Department%20of%20Energy,reinvested%20back%20into%20the%20economy.). That is a large amount of resources that can be reinvested in back into the economy. Thus, I will be doing an analysis on a data set consisting of all major power outages in the United States from January 2000 to July 2016 acquired from Purdue University's Laboratory for Advancing Substainable Critical Infrastructure [(Dataset)](https://engineering.purdue.edu/LASCI/research-data/outages).
 
-Energy and power have become an essential resource within society. In this era of technology, the AI boom, big tech companies like Meta, Google, and OpenAI use a lot of energy resources to advance societal progressing innovations like training new AI models. However, this leads to a major security risk for both companies and the rest residents of the United States. With these companies being so reliant on energy as resource, they could become a big target to malicious attacks that intend to hinder progress and disrupt American society. This makes it essential to understand why major power outages happen and thus, my analysis will be centered around the question of is there a noticeable trend between the industrial and commercial energy consumption levels and outages caused by malicious attacks?
+Energy and power have become an essential resource within society. In this era of technology, the AI boom, big tech companies like Meta, Google, and OpenAI use a lot of energy resources to advance societal progressing innovations like training new AI models. However, this leads to a major security risk for both companies and the rest residents of the United States. With these companies being so reliant on energy as resource, they could become a big target to malicious attacks that intend to hinder progress and disrupt American society. This makes it essential to understand why major power outages happen and thus, my analysis will be centered around the question of **is there a noticeable trend between the industrial and commercial energy consumption levels and outages caused by malicious attacks?**
 
 According to the Department of Energy, a major outage is defined as a power outage that has impacted over 50,000 people or caused an unplanned firm load loss of at least 300MW [Firm Load Loss]. The dataset I will be working with provides information on such outages such as geographical location, date and time of the outages, climate information, land-use characteristics, and the energy consumption, and the economic data of impacted regions. Additionally, the dataset has a total of 1534 rows which describes 1534 outages. This dataset is vast so I will only focus on a few of the columns that are the most relevant to my analysis. Here is a description of the columns I will be utilizing:
 
@@ -130,11 +130,11 @@ I analyzed the missingess dependency of the INDUSTRY.CONSUMPTION on other column
 
 **Significance Level** = 0.05
 
-<iframe src="assets/miss1.html" width="800" height="600" frameborder="0"></iframe>
+<iframe src="assets/miss1.html" width="500" height="350" frameborder="0"></iframe>
 
 From the observed distribution, I calculated a TVD of 0.246.
 
-<iframe src="assets/missdist1.html" width="800" height="600" frameborder="0"></iframe>
+<iframe src="assets/missdist1.html" width="500" height="350" frameborder="0"></iframe>
 
 The empirical distribution of TVDs is shown above after running through 1000 iterations. We obtained a p-val of 0.124 and fail to reject the null as a result. This means that our missingness of `INDUSTRY.CONSUMPTION` is not signficiantly dependent on `NERC.REGION`
 
@@ -148,17 +148,31 @@ The empirical distribution of TVDs is shown above after running through 1000 ite
 
 **Significance Level** = 0.05
 
-<iframe src="assets/miss2.html" width="800" height="600" frameborder="0"></iframe>
+<iframe src="assets/miss2.html" width="500" height="350" frameborder="0"></iframe>
 
 From the observed distribution, I calculated a TVD of 0.444.
 
-<iframe src="assets/missdist2.html" width="800" height="600" frameborder="0"></iframe>
+<iframe src="assets/missdist2.html" width="500" height="350" frameborder="0"></iframe>
 
 The empirical distribution of TVDs is shown above after running through 1000 iterations. We obtained a p-val of 0.0 and reject the null as a result. This means that our missingness of `INDUSTRY.CONSUMPTION` is signficiantly dependent on `MONTH`.
 
 ## Hypothesis Testing
 
+Going back to our research question of **is there a noticeable trend between the industrial and commercial energy consumption levels and outages caused by malicious attacks?** I will conduct a permutation test to see if there is a correlation between industrial and commercial energy consumption and outages caused by intentional attacks.
 
+**Null Hypothesis**: On Average, the Industry Energy Consumption Percentage during the time of outages caused by Intentional Attacks are the same as outages caused by Severe Weather.
+
+**Alternative Hypothesis**: On Average, the Industry Energy Consumption Percentage during the time of outages caused by Intentional Attacks are greater than outages caused by Severe Weather.
+
+**Test Stat**: Difference in Means
+
+**Significance Level**: 0.05
+
+The reason I chose Difference in Means for my statistic is I am trying to see if there is a difference in between two distributions. Additionally, there is a direction for my hypothesis where I am trying to determine if the average Industry Consumption percentage is greater during Intentional attacks.
+
+<iframe src="assets/hyp.html" width="800" height="600" frameborder="0"></iframe>
+
+The graph shown above displays the empirical distribution of the difference of means after running the permutation test through 1000 iterations. I calculated an **observed difference of means of 0.873** resulting in a **p-val of 0.011**, and thus, we reject the null.
 
 ## Framing a Prediction Problem
 We framed a prediction problem to identify the most important causes and characteristics of major power outages. The goal was to build a model that can predict the duration of an outage based on given conditions, which can help energy companies implement preventative measures. For this prediction problem, we will use regression.
