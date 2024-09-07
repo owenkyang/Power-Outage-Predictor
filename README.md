@@ -9,7 +9,21 @@ Energy and power have become an essential resource within society. In this era o
 
 According to the Department of Energy, a major outage is defined as a power outage that has impacted over 50,000 people or caused an unplanned firm load loss of at least 300MW [Firm Load Loss]. The dataset I will be working with provides information on such outages such as geographical location, date and time of the outages, climate information, land-use characteristics, and the energy consumption, and the economic data of impacted regions. Additionally, the dataset has a total of 1534 rows which describes 1534 outages. This dataset is vast so I will only focus on a few of the columns that are the most relevant to my analysis. Here is a description of the columns I will be utilizing:
 
-
+| Columns | Description |
+| ------- | ----------- |
+| `NERC.REGION` | North American Electric Reliability Corporation (NERC) regions involved in the outage event |
+| `CUSTOMERS.AFFECTED` | Number of customers affected by the power outage event |
+| `OUTAGE.DURATION` | Duration of outage events (in minutes) |
+| `CAUSE.CATEGORY` | Categories of all the events causing the major power outages |
+| `U.S._STATE` | State in which the outage occurred |
+| `POPULATION` | Population of the affected area |
+| `DEMAND.LOSS.MW` | Demand loss in megawatts |
+| `MONTH` | Month in which the outage occurred |
+| `YEAR` | Year in which the outage occurred |
+| 'IND.PERCEN' | Percentage of industrial electricity consumption compared to the total electricity consumption in the state (in %) |
+| 'IND.SALES' | Electricity consumption in the industrial sector (megawatt-hour) |
+| 'COM.PERCEN' | Percentage of commercial electricity consumption compared to the total electricity consumption in the state (in %) |
+| 'COM.SALES' | Electricity consumption in the commercial sector (megawatt-hour) |
 
 ## Data Cleaning and Exploratory Data Analysis
 
