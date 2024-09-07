@@ -61,33 +61,16 @@ Next, I conducted EDA on the cleaned data set to discover patterns and seek out 
 
 #### Univariate Analysis
 
-<iframe src="assets/climate_region_distribution.html" width="800" height="600" frameborder="0"></iframe>
+<iframe src="assets/uni1.html" width="800" height="600" frameborder="0"></iframe>
 
-The graph above represents the distribution of power outages across different climate regions in the United States. This bar plot provides a visual summary of the number of outages recorded in each climate region.
-
-**X-Axis (Index):**
-The x-axis represents the different climate regions. Each label on the x-axis corresponds to a specific climate region as defined by the National Centers for Environmental Information. The climate regions included in this dataset are:
-
-- Northeast
-- South
-- West
-- Central
-- Southeast
-- East North Central
-- Northwest
-- Southwest
-- West North Central
-
-**Y-Axis (Value):**
-The y-axis represents the number of power outages. This value indicates how many power outage events were recorded in each respective climate region.
+The graph above represents the distribution of industry energy consumption percentage or non-residential energy consumption percentage. The x-axis displays the percentage bins with the y-axis displays the frequency of those percentages. 
 
 **Observations:**
-- The Northeast region has the highest number of recorded power outages, with a count nearing 350 events.
-- The South, West, and Central regions also have a relatively high number of outages, each with counts exceeding 200 events.
-- The Southeast, East North Central, and Northwest regions have moderate numbers of outages, ranging from approximately 100 to 150 events.
-- The Southwest and West North Central regions have the fewest recorded outages, with the West North Central region having significantly fewer events compared to other regions.
+The distribution is almost normal, with most consumption percentages between 60% and 65%. This shows that the industrial and commercial sectors used more energy than the residential sector in most regions.
 
-This distribution highlights that some regions experience a higher frequency of power outages compared to others. Understanding these regional differences is crucial for targeted improvements in power grid resilience and outage management. The graph helps identify regions that may require more robust infrastructure or more efficient outage response strategies.
+<iframe src="assets/uni2.html" width="800" height="600" frameborder="0"></iframe>
+
+
 
 
 #### Bivariate Analysis
