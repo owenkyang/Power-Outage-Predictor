@@ -29,41 +29,21 @@ According to the Department of Energy, a major outage is defined as a power outa
 ## Data Cleaning and Exploratory Data Analysis
 
 ### Data Cleaning and Preprocessing
- 1. **Dropping the "Units" Row:**
-   The first row after skipping the metadata contained units instead of data, so we dropped it.
+ 1. **Dropping the Columns We Don't Need:**
+    I drop every column that I do not need to use for my analysis. This includes every column that is not listed above.
+    
+ 2. **Single Value Imputation Using Means for Quantitative Columns:**
+    Next, my Quantitative columns have some missingness to them. To counteract this, I impute these values with the means of such columns. These columns include: `IND.PERCEN`, `IND.SALES`, `OUTAGE.DURATION`, `DEMAND.LOSS.MW`,   
+    `COM.SALES`, `COM.PERCEN`, and `CUSTOMERS.AFFECTED`.
+    
+ 3. **Single Value Imputation Using Mode for Categorical Columns:**
+    Next, ny Categorical columns have some missing values as well. To counteract this, I impute the values with the mode of such columns. There's only one categorical column that I need with missingness which is: `MONTH`.
 
-2. **Mean Imputation for Numerical Columns:**
-   For numerical columns, we replaced missing values with the mean value of each column. This included columns such as `OUTAGE.DURATION`, `CUSTOMERS.AFFECTED`, `ANOMALY.LEVEL`, `POPULATION`, and `DEMAND.LOSS.MW`.
+ 4. **Combining Columns:**
+   Next, I combine the columns of `IND.SALES` and `COM.SALES` together into `INDUSTRY.CONSUMPTION` in order to make my data less wide. This makes it easier to do calculations and analysis with Non-Residential Consumption
+   amounts. Additionally, I do the same with the columned `IND.PERCEN` and `COM.PERCEN` into `INDUSTRY.PERCENTAGE`for the same reasons. I then drop the `IND.SALES`, `COM.SALES`, `IND.PERCEN` and `COM.PERCEN` in order to make
+   my data less wide.
 
-
-3. **Mode Imputation for Categorical Columns:**
-   For categorical columns, we replaced missing values with the most frequent value (mode) of each column. This included columns such as `CLIMATE.REGION`, `CAUSE.CATEGORY`, `NERC.REGION`, `U.S._STATE`, and `MONTH`.
-
-4. **Combining Date and Time Columns:**
-   We combined `OUTAGE.START.DATE` and `OUTAGE.START.TIME` to create a single `OUTAGE_START_DATETIME` column, and similarly, combined `OUTAGE.RESTORATION.DATE` and `OUTAGE.RESTORATION.TIME` to create a single `OUTAGE_RESTORATION_DATETIME` column. This helped reduce redundancy and simplified the dataset.
-
-5. **Dropping Old Date and Time Columns:**
-   After creating the datetime columns, we dropped the original date and time columns to avoid redundancy.
-
-
-### Data Description
-The original raw dataset contains 1534 rows, corresponding to 1534 outages, and 57 columns. For the purpose of our analysis, we focused on the following columns:
-
-| Columns | Description |
-| ------- | ----------- |
-| `OUTAGE_START_DATETIME` | Combined datetime of outage start |
-| `OUTAGE_RESTORATION_DATETIME` | Combined datetime of outage restoration |
-| `NERC.REGION` | North American Electric Reliability Corporation (NERC) regions involved in the outage event |
-| `CUSTOMERS.AFFECTED` | Number of customers affected by the power outage event |
-| `OUTAGE.DURATION` | Duration of outage events (in minutes) |
-| `CLIMATE.REGION` | U.S. Climate regions as specified by National Centers for Environmental Information |
-| `CAUSE.CATEGORY` | Categories of all the events causing the major power outages |
-| `ANOMALY.LEVEL` | Gravity of natural disaster on power outage |
-| `U.S._STATE` | State in which the outage occurred |
-| `POPULATION` | Population of the affected area |
-| `DEMAND.LOSS.MW` | Demand loss in megawatts |
-| `MONTH` | Month in which the outage occurred |
-| `YEAR` | Year in which the outage occurred |
 
 ### Cleaned Data Example
 Here is an example of the cleaned dataset:
@@ -146,21 +126,6 @@ To determine whether data are likely NMAR (Not Missing At Random), we must reaso
 
 ### Missingness Dependency
 We analyzed the dependency of the missingness of the `OUTAGE.DURATION` column on other columns in the dataset by performing permutation tests.
-
-### Missingness Summary
-
-| Column                      | Missingness Proportion |
-|-----------------------------|------------------------|
-| `OUTAGE_START_DATETIME`       | 0.005867               |
-| `OUTAGE_RESTORATION_DATETIME` | 0.037810               |
-| `NERC.REGION`                 | 0.000000               |
-| `CUSTOMERS.AFFECTED`          | 0.288787               |
-| `OUTAGE.DURATION`             | 0.037810               |
-| `CLIMATE.REGION`              | 0.003911               |
-| `CAUSE.CATEGORY`              | 0.000000               |
-| `ANOMALY.LEVEL`               | 0.005867               |
-| `MONTH`                       | 0.005867               |
-| `OUTAGE_DURATION_MISSING`     | 0.000000               |
 
 ### Permutation Test Results
 #### Categorical Column: CAUSE.CATEGORY
