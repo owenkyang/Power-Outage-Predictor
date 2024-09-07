@@ -29,7 +29,7 @@ According to the Department of Energy, a major outage is defined as a power outa
 ## Data Cleaning and Exploratory Data Analysis
 
 ### Data Cleaning and Preprocessing
- 1. **Dropping the Columns We Don't Need:**
+ 1. **Dropping Unneccesary Columns:**
     I drop every column that I do not need to use for my analysis. This includes every column that is not listed above.
     
  2. **Single Value Imputation Using Means for Quantitative Columns:**
