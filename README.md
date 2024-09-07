@@ -108,7 +108,7 @@ The aggregated dataframe above displays the average Industry Consumption, the av
 
 We can see that equipment failure and public appeal have the highest average amount of industry consumption. Additionally we can see that outages caused by islanding have the highest industry consumption percentage on average, and that outages caused by fuel supply emergancy last the longest on average.
 
-The aggregated table reveals that outages caused by different factors can result in different outage durations. The table also reveals that there might be an underlying relationship between Industry Energy Consumption levels and the cause of an outage. By looking at this data, 
+The aggregated table reveals that outages caused by different factors can result in different outage durations. The table also reveals that there might be an underlying relationship between Industry Energy Consumption levels and the cause of an outage. By looking at this data, companies and society can determine which outages last the longest and see if there is an underlying relationship by how we consume our resources.
 
 ## Assessment of Missingness
 
