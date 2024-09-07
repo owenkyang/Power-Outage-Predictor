@@ -118,11 +118,25 @@ There is a ton of missingness within this dataset. However, one of these columns
 We can determine if DEMAND.LOSS.MW was MAR if we had access to other data such as what companies self-reported the demand loss and see if they have a history of not reporting demand loss.
 
 ### Missingness Dependency
-I analyzed the missingess dependency of the INDUSTRY.CONSUMPTION on other columns. The dependency will be tested on the columns of `NERC.REGION` and `MONTH`.
+I analyzed the missingess dependency of the INDUSTRY.CONSUMPTION on other columns. The dependency will be tested on the columns of `NERC.REGION` and `MONTH` through permutation tests.
 
-### Detailed Analysis
-#### MONTH
-The p-value of 0.118 for the `MONTH` column suggests that the missingness of `OUTAGE.DURATION` is not significantly dependent on the month in which the outage occurred. This implies that the occurrence of missing data for outage duration does not vary significantly across different months. The permutation test's observed statistic for `MONTH` fell within the distribution of the permuted statistics, indicating no strong relationship between `MONTH` and missingness in `OUTAGE.DURATION`.
+### Missing Dependency on NERC.REGION
+
+Null Hypothesis: The Distribution of the Nerc Region Category is the same when Industry Consumption is missing vs. when Industry Consumption is not missing
+
+Alternative Hypothesis: The Distribution of Nerc Region Category is not the same when Industry Consumption is missing vs. when Industry Consumption is not missing
+
+Test Stat: TVD
+
+Significance Level = 0.05
+
+<iframe src="assets/miss1.html" width="800" height="600" frameborder="0"></iframe>
+
+From the observed distribution, I calculated a TVD of 0.246.
+
+<iframe src="assets/missdist1.html" width="800" height="600" frameborder="0"></iframe>
+
+The empirical distribution of TVDs is shown above after running through 1000 iterations. We obtained a p-val of 0.124 and fail to reject the null as a result. This means that our missingness of `INDUSTRY.CONSUMPTION` is not signficiantly dependent on `NERC.REGION`
 
 #### CLIMATE.REGION
 On the other hand, the `CLIMATE.REGION` column shows a significant dependency on the missingness of `OUTAGE.DURATION` with a p-value of 0.004. This indicates that the missing data for outage duration is not uniformly distributed across different climate regions. The observed statistic for `CLIMATE.REGION` is significantly higher than most of the permuted statistics, suggesting that certain climate regions may have more or less missing data, possibly due to varying reporting standards or environmental factors affecting data collection.
