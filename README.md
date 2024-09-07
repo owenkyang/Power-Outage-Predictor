@@ -113,14 +113,12 @@ The aggregated table reveals that outages caused by different factors can result
 ## Assessment of Missingness
 
 ### NMAR Analysis
-To determine whether data are likely NMAR (Not Missing At Random), we must reason about the data-generating process. In our dataset, if the missingness of the `OUTAGE.DURATION` is due to factors not recorded in the dataset, such as manual errors during data entry or specific reporting practices of certain regions, it could be NMAR. However, we cannot conclude this solely by looking at the data. Additional information about the data collection process would be necessary to determine NMAR.
+There is a ton of missingness within this dataset. However, one of these columns is NMAR (Not missing at random) and that column is DEMAND.LOSS.MW. To determine if a column is NMAR, we have to analyze the data generating process. We can justify that the DEMAND.LOSS.MW column is NMAR since during the data collection process of Demand Loss, it is a metric that is easy for companies to forget to report or there was errors in the collecting process.
+
+We can determine if DEMAND.LOSS.MW was MAR if we had access to other data such as what companies self-reported the demand loss and see if they have a history of not reporting demand loss.
 
 ### Missingness Dependency
-We analyzed the dependency of the missingness of the `OUTAGE.DURATION` column on other columns in the dataset by performing permutation tests.
-
-
-### Interpretation
-The p-values obtained from the permutation tests indicate that the missingness of the `OUTAGE.DURATION` column is dependent on `CAUSE.CATEGORY`, `CLIMATE.REGION`, `NERC.REGION`, and `ANOMALY.LEVEL` (p-value < 0.05). However, the missingness of `OUTAGE.DURATION` is not dependent on `MONTH` (p-value = 0.118).
+I analyzed the missingess dependency of the INDUSTRY.CONSUMPTION on other columns. The dependency will be tested on the columns of `NERC.REGION` and `MONTH`.
 
 ### Detailed Analysis
 #### MONTH
