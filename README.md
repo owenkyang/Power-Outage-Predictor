@@ -122,13 +122,13 @@ I analyzed the missingess dependency of the INDUSTRY.CONSUMPTION on other column
 
 ### Missing Dependency on NERC.REGION
 
-Null Hypothesis: The Distribution of the Nerc Region Category is the same when Industry Consumption is missing vs. when Industry Consumption is not missing
+**Null Hypothesis:** The Distribution of the Nerc Region Category is the same when Industry Consumption is missing vs. when Industry Consumption is not missing
 
-Alternative Hypothesis: The Distribution of Nerc Region Category is not the same when Industry Consumption is missing vs. when Industry Consumption is not missing
+**Alternative Hypothesis:** The Distribution of Nerc Region Category is not the same when Industry Consumption is missing vs. when Industry Consumption is not missing
 
-Test Stat: TVD
+**Test Stat:** TVD
 
-Significance Level = 0.05
+**Significance Level** = 0.05
 
 <iframe src="assets/miss1.html" width="800" height="600" frameborder="0"></iframe>
 
@@ -138,58 +138,27 @@ From the observed distribution, I calculated a TVD of 0.246.
 
 The empirical distribution of TVDs is shown above after running through 1000 iterations. We obtained a p-val of 0.124 and fail to reject the null as a result. This means that our missingness of `INDUSTRY.CONSUMPTION` is not signficiantly dependent on `NERC.REGION`
 
-#### CLIMATE.REGION
-On the other hand, the `CLIMATE.REGION` column shows a significant dependency on the missingness of `OUTAGE.DURATION` with a p-value of 0.004. This indicates that the missing data for outage duration is not uniformly distributed across different climate regions. The observed statistic for `CLIMATE.REGION` is significantly higher than most of the permuted statistics, suggesting that certain climate regions may have more or less missing data, possibly due to varying reporting standards or environmental factors affecting data collection.
+### Missing Dependency on MONTH
 
-### Graphs
-#### Permutation Test: MONTH and Missingness of OUTAGE_DURATION
-The following plot shows the distribution of test statistics from the permutation test for the `MONTH` column. The red dashed line represents the observed test statistic.
+**Null Hypothesis:** The Distribution of the Month Category is the same when Industry Consumption is missing vs. when Industry Consumption is not missing
 
-<iframe src="assets/permutation_test_MONTH.html" width="800" height="600" frameborder="0"></iframe>
+**Alternative Hypothesis:** The Distribution of Month Category is not the same when Industry Consumption is missing vs. when Industry Consumption is not missing
 
-#### Permutation Test: CAUSE.CATEGORY and Missingness of OUTAGE_DURATION
-The following plot shows the distribution of test statistics from the permutation test for the `CAUSE.CATEGORY` column. The red dashed line represents the observed test statistic.
+**Test Stat:** TVD
 
-<iframe src="assets/permutation_test_CAUSE_CATEGORY.html" width="800" height="600" frameborder="0"></iframe>
+**Significance Level** = 0.05
+
+<iframe src="assets/miss2.html" width="800" height="600" frameborder="0"></iframe>
+
+From the observed distribution, I calculated a TVD of 0.444.
+
+<iframe src="assets/missdist2.html" width="800" height="600" frameborder="0"></iframe>
+
+The empirical distribution of TVDs is shown above after running through 1000 iterations. We obtained a p-val of 0.0 and reject the null as a result. This means that our missingness of `INDUSTRY.CONSUMPTION` is signficiantly dependent on `MONTH`.
 
 ## Hypothesis Testing
-We formulated and tested hypotheses to explore the relationship between climate regions and the duration of power outages. Specifically, we examined if the climate region has an effect on the duration of power outages.
 
-### Null Hypothesis (H₀)
-The climate region has no effect on the duration of power outages.
 
-### Alternative Hypothesis (H₁)
-The climate region does have an effect on the duration of power outages.
-
-### Permutation Test
-To test these hypotheses, we performed a permutation test with the following steps:
-
-1. **Calculate the Observed Statistic:**
-   - We calculated the difference in means of `OUTAGE.DURATION` across different `CLIMATE.REGION` values.
-
-2. **Generate Permutation Samples:**
-   - We randomly shuffled the `CLIMATE.REGION` labels and recalculated the difference in means to generate a distribution of the test statistic under the null hypothesis.
-
-3. **Calculate P-value:**
-   - We computed the p-value by comparing the observed test statistic to the distribution of permuted test statistics.
-
-### Results
-The observed statistic and p-value obtained from the permutation test are as follows:
-
-- **Observed Statistic:** 931.7692073170731
-- **P-value:** 0.453
-
-#### Interpretation
-Since the p-value is greater than 0.05, we fail to reject the Null Hypothesis. This suggests that there is no significant effect of climate regions on the duration of power outages.
-
-### Graphical Representation
-The following plot shows the distribution of the test statistics from the permutation test for the `CLIMATE.REGION` column. The red dashed line represents the observed test statistic.
-
-<iframe src="assets/hypothesis_permutation.html" width="800" height="600" frameborder="0"></iframe>
-
-This graphical representation further confirms our statistical findings. The observed test statistic falls well within the distribution of permuted statistics, indicating that the observed difference is not significantly different from what we would expect by random chance.
-
-Thus, we conclude that there is no significant evidence to suggest that climate regions have an effect on the duration of power outages.
 
 ## Framing a Prediction Problem
 We framed a prediction problem to identify the most important causes and characteristics of major power outages. The goal was to build a model that can predict the duration of an outage based on given conditions, which can help energy companies implement preventative measures. For this prediction problem, we will use regression.
