@@ -113,9 +113,9 @@ The aggregated table reveals that outages caused by different factors can result
 ## Assessment of Missingness
 
 ### NMAR Analysis
-There is a ton of missingness within this dataset. However, one of these columns is NMAR (Not missing at random) and that column is DEMAND.LOSS.MW. To determine if a column is NMAR, we have to analyze the data generating process. We can justify that the DEMAND.LOSS.MW column is NMAR since during the data collection process of Demand Loss, it is a metric that is easy for companies to forget to report or there was errors in the collecting process.
+There is a ton of missingness within this dataset. However, one of these columns is NMAR (Not missing at random) and that column is `DEMAND.LOSS.MW`. To determine if a column is NMAR, we have to analyze the data generating process. We can justify that the `DEMAND.LOSS.MW` column is NMAR since during the data collection process of Demand Loss, it is a metric that is easy for companies to forget to report or there was errors in the collecting process.
 
-We can determine if DEMAND.LOSS.MW was MAR if we had access to other data such as what companies self-reported the demand loss and see if they have a history of not reporting demand loss.
+We can determine if `DEMAND.LOSS.MW` is MAR if we had access to other data such as what companies self-reported the demand loss and see if they have a history of not reporting demand loss.
 
 ### Missingness Dependency
 I analyzed the missingess dependency of the INDUSTRY.CONSUMPTION on other columns. The dependency will be tested on the columns of `NERC.REGION` and `MONTH` through permutation tests.
@@ -228,28 +228,19 @@ In conclusion the final model ended with a F1 score of 0.794. That is an 7.4% im
 The metric we will be using is precision.
 
 ## Group Definition
-- **Group X** = not_intentional (contains severe weather, system operability disruption, equipment failure and fuel supply emergency)
-- **Group Y** = Everything else (intentional attack, public appeal, islanding)
+- **Group 1** = High `INDUSTRY.CONSUMPTION` (Anything greater than the median of `INDUSTRY.CONSUMPTION`)
+- **Group Y** = Low `INDUSTRY.CONSUMPTION` (Anything less than the median of `INDUSTRY.CONSUMPTION`)
 
 ## Hypotheses
-- **Null Hypothesis (H0)**: The model is fair across the different CAUSE.CATEGORY. The RMSE for Group X and Group Y are approximatley the same, and any observed differences are due to random chance.
-- **Alternative Hypothesis (H1)**: The model is unfair, showing a significant difference in RMSE between Group X (not_intentional) and Group Y (Everything Else).
+**Null Hypothesis:** My model is fair. The precision for causes for outages that happen in regions of high industry consumption is roughly the causes for outages that happen in regions of low industry consumption.
+**Alternative Hypothesis:** My model is unfair. The precision for outages that in happen in regions of high industry consumption is lower than the causes for outages that happen in regions of low industry consumption.
 
-## Test Statistic and Significance Level
-- The test statistic is the absolute difference in RMSE between the two groups. The permutation test involves shuffling the ‘CAUSE.CATEGORY’ labels and recalculating this difference. The significance level we choose is 0.05 as it is a common metric of significance.
+**Test Stat**: Difference of precision between the two groups
 
-## P-Value and Conclusion
-- After performing the permutation test for 1,000 iterations, the p-value is determined by calculating the proportion of permutations in which the observed test statistic is at least as extreme as the test statistic from the original dataset.
+**Significance Level**: 0.05
 
-- **P-Value**: 0.15
+<iframe src="assets/fair.html" width="800" height="600" frameborder="0"></iframe>
 
-- **Conclusion**: With a p-value of 0.15, which is above the commonly used significance level of 0.05, we do not have sufficient evidence to reject the null hypothesis. This means that we cannot conclude that there is a significant difference in RMSE between the two groups, and the observed difference is likely due to random chance.
+**P-Value**: 0.881
 
-
-
-## Report Conclusion
-Our analysis provides valuable insights into the causes and characteristics of major power outages in the United States. The cleaned and preprocessed dataset, along with our exploratory data analysis and hypothesis testing, helped us understand the key factors affecting power outages. Our predictive model can assist energy companies in implementing preventative measures to minimize the impact of power outages on customers.
-
-By conducting a fairness analysis, we ensured that our model is equitable and does not disproportionately affect certain groups. This comprehensive approach allows us to make informed recommendations for improving the resilience of the power grid and enhancing the reliability of electricity supply.
-
-Overall, our project demonstrates the importance of data-driven decision-making in addressing complex challenges in the energy sector.
+With a p-value of 0.881, we fail to reject the null. This means that any difference in precision between the two groups is roughly due to chance.
