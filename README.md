@@ -229,7 +229,7 @@ The metric we will be using is precision.
 
 ## Group Definition
 - **Group 1** = High `INDUSTRY.CONSUMPTION` (Anything greater than the median of `INDUSTRY.CONSUMPTION`)
-- **Group Y** = Low `INDUSTRY.CONSUMPTION` (Anything less than the median of `INDUSTRY.CONSUMPTION`)
+- **Group 2** = Low `INDUSTRY.CONSUMPTION` (Anything less than the median of `INDUSTRY.CONSUMPTION`)
 
 ## Hypotheses
 **Null Hypothesis:** My model is fair. The precision for causes for outages that happen in regions of high industry consumption is roughly the causes for outages that happen in regions of low industry consumption.
