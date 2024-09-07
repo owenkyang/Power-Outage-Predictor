@@ -182,7 +182,7 @@ However, to realistically use a model to predict the cause of outages, we can on
 ## Baseline Model
 
 ### Model Description
-First, we will being with implementing the base model. I will be using a Decision Tree Classifier as the estimator and I will describe the features and feature engineering I will conduct:
+First, we will being with implementing the base model. I will be using a Decision Tree Classifier as the model and I will describe the features and feature engineering I will conduct:
 
 ### Features and Feature Engineering
 The features in the based model included two nominal features, `US.STATE` and `NERC.REGION`:
@@ -199,15 +199,17 @@ With the utilization of only 2 features and no hyperparameter optimizing (Scikit
 
 Now, we improve on the Base Model that was implemented. I will introduce new features and conduct Hyperparameter Optimization in order to improve classification accuracy.
 
-### New Features
+### Changing the Model
 
-We added the following features:
+In the Baseline model, we used the Decision Tree Classifier model. However, after experimenting, I switched to a **Random Forest Classifier** in order to reduce the risk of overfitting.
 
-- `CUSTOMERS.AFFECTED`: This feature directly measures the number of customers affected by each outage event. The rationale for this is as the amount of customers affected by a power outage increases, the duration decreases due to the severity of the outage
-- `NERC.REGION`: The rational for adding this feature is that different NERC regions may have varying infrastructure quality and resilience. Some regions might have more robust systems that can restore power more quickly.
-- `ANOMALY.LEVEL`: Anomaly levels often indicate extreme weather or environmental conditions (e.g., unusually high temperatures, severe storms, or other unusual weather events) which can significantly impact the power grid's stability and lead to longer outages.
-- `POPULATION`: The total population in the affected area can be a crucial factor in predicting the duration of an outage. Areas with higher populations might have more robust infrastructure to handle outages, meaning they have lower outages durations.
-- `CAUSE.CATEGORY`: Different causes of outages (e.g., weather-related, equipment failure, human error) have distinct characteristics and challenges. Understanding the cause helps in estimating how long it might take to address the issue.
+### Added Features and Feature Engineering
+
+`MONTH` (Nominal):
+
+`POPULATION` (Quantitative):
+
+`INDUSTRY.CONSUMPION` (Quantitative): 
 
 ### Model Selection and Hyperparameter Tuning
 
