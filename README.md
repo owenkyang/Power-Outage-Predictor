@@ -233,6 +233,7 @@ The metric we will be using is precision.
 
 ### Hypotheses
 **Null Hypothesis:** My model is fair. The precision for causes for outages that happen in regions of high industry consumption is roughly the causes for outages that happen in regions of low industry consumption.
+
 **Alternative Hypothesis:** My model is unfair. The precision for outages that in happen in regions of high industry consumption is lower than the causes for outages that happen in regions of low industry consumption.
 
 **Test Stat**: Difference of precision between the two groups
