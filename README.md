@@ -222,16 +222,16 @@ The hyperparamters that ended up performing the best were:
 
 In conclusion the final model ended with a F1 score of 0.794. That is an 7.4% improvement from the base model. The reasoning for this improvement in F1-score is due to the fact that 2 relevant features were added to the model and hyperparameter tuning was implemented.
 
-## Fairness Analysis
+### Fairness Analysis
 
-## Evaluation Metric
+### Evaluation Metric
 The metric we will be using is precision.
 
-## Group Definition
+### Group Definition
 - **Group 1** = High `INDUSTRY.CONSUMPTION` (Anything greater than the median of `INDUSTRY.CONSUMPTION`)
 - **Group 2** = Low `INDUSTRY.CONSUMPTION` (Anything less than the median of `INDUSTRY.CONSUMPTION`)
 
-## Hypotheses
+### Hypotheses
 **Null Hypothesis:** My model is fair. The precision for causes for outages that happen in regions of high industry consumption is roughly the causes for outages that happen in regions of low industry consumption.
 **Alternative Hypothesis:** My model is unfair. The precision for outages that in happen in regions of high industry consumption is lower than the causes for outages that happen in regions of low industry consumption.
 
