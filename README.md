@@ -1,4 +1,4 @@
-# Analyzing Power Outages 🔌
+# Power Outage Cause Predictor 🔌
 Project for DSC80 UCSD
 by Owen Yang
 
@@ -37,7 +37,7 @@ According to the Department of Energy, a major outage is defined as a power outa
     `COM.SALES`, `COM.PERCEN`, and `CUSTOMERS.AFFECTED`.
     
  3. **Single Value Imputation Using Mode for Categorical Columns:**
-    Next, ny Categorical columns have some missing values as well. To counteract this, I impute the values with the mode of such columns. There's only one categorical column that I need with missingness which is: `MONTH`.
+    Next, my Categorical columns have some missing values as well. To counteract this, I impute the values with the mode of such columns. There's only one categorical column that I need with missingness which is: `MONTH`.
 
  4. **Combining Columns:**
    Next, I combine the columns of `IND.SALES` and `COM.SALES` together into `INDUSTRY.CONSUMPTION` in order to make my data less wide. This makes it easier to do calculations and analysis with Non-Residential Consumption
@@ -57,7 +57,7 @@ Here is an example of the cleaned dataset:
 |   2015 |       7 | Minnesota  |  5.48959e+06 |              1740 |          250     | severe weather     |               250000 | MRO           |            3.93955e+06 |               65.9853 |
 
 ### Exploratory Data Analysis (EDA)
-We conducted EDA to understand the distribution and characteristics of the outages, visualizing the data to identify key trends and patterns.
+Next, I conducted EDA on the cleaned data set to discover patterns and seek out interesting distributions.
 
 #### Univariate Analysis
 
