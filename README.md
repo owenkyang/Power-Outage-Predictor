@@ -175,25 +175,9 @@ The reason I chose Difference in Means for my statistic is I am trying to see if
 The graph shown above displays the empirical distribution of the difference of means after running the permutation test through 1000 iterations. I calculated an **observed difference of means of 0.873** resulting in a **p-val of 0.011**, and thus, we reject the null.
 
 ## Framing a Prediction Problem
-We framed a prediction problem to identify the most important causes and characteristics of major power outages. The goal was to build a model that can predict the duration of an outage based on given conditions, which can help energy companies implement preventative measures. For this prediction problem, we will use regression.
+I will be implementing a classification model that will be predicting the cause of a power outage. Being able to predict the cause of outages will allow us to become more prepared for future outages and progress towards implementing preventative measures against power outages. Additionally, it allows us to act quicker on power outages reducing downtime and minimizing finanical loss. I will be performing multi-class classification since there are multiple outage cause categories and will be using F1-score to evaluate my model. The reason I am using the F1-score is because there's an unbalanced distribution of outage causes within the provided dataset.
 
-### Prediction Task
-The specific prediction task is to predict the duration of a power outage based on the climate region, taking into account other relevant features.
-
-### Response Variable
-Our response variable is `OUTAGE.DURATION`, as this is the column we are trying to predict.
-
-### Evaluation Metric
-The metric we plan on using is Root Mean Squared Error (RMSE). RMSE is chosen because it penalizes large errors more due to the squaring of the residuals. This makes it a good choice for our problem where we want to minimize the difference between the actual and predicted duration of a power outage based on the climate region.
-
-### Features
-The features we will use in our model are:
-- `CLIMATE.REGION`: The U.S. Climate regions as specified by the National Centers for Environmental Information.
-- `CUSTOMERS.AFFECTED`: Number of customers affected by the power outage event.
-- `ANOMALY.LEVEL`: Gravity of natural disaster on power outage.
-- `NERC.REGION`: North American Electric Reliability Corporation regions involved in the outage event.
-- `POPULATION`: Population in the U.S. state in a year.
-- `CAUSE.CATEGORY`: Categories of all the events causing the major power outages
+However, to realistically use a model to predict the cause of outages, we can only use features of the data that we would know before an outage such as the U.S. State and Population of the region.  We would not be allowed to use features that correlate to the intensity of the outage as those features are collected after the outage actually happens.
 
 ## Baseline Model
 
