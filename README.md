@@ -1,5 +1,4 @@
 # Power Outage Cause Predictor 🔌
-Project for DSC80 UCSD
 by Owen Yang
 
 ## Introduction
