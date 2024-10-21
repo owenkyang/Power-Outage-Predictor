@@ -93,15 +93,13 @@ The graph above displays the Industry Energy Consumption percentage for each out
 We can see that both outages caused by severe weather and intentional attacks both typically have a higher industrial energy consumption percentage!
 
 #### Interesting Aggregates
-| CAUSE.CATEGORY                |   INDUSTRY.CONSUMPTION |   INDUSTRY.PERCENTAGE |   OUTAGE.DURATION |
-|:------------------------------|-----------------------:|----------------------:|------------------:|
-| equipment failure             |            9.6593e+06  |               63.3537 |          1884.28  |
-| fuel supply emergency         |            1.02709e+07 |               64.296  |         10716.1   |
-| intentional attack            |            4.41917e+06 |               62.9796 |           508.763 |
-| islanding                     |            1.00101e+07 |               66.0062 |           305.974 |
-| public appeal                 |            9.94388e+06 |               59.8695 |          1468.45  |
-| severe weather                |            7.41852e+06 |               62.1058 |          3852.64  |
-| system operability disruption |            1.04029e+07 |               62.8009 |           788.603 |
+|   YEAR |   MONTH | US.STATE   |   POPULATION |   OUTAGE.DURATION |   DEMAND.LOSS.MW | CAUSE.CATEGORY     |   CUSTOMERS.AFFECTED | NERC.REGION   |   INDUSTRY.CONSUMPTION |   INDUSTRY.PERCENTAGE |
+|-------:|--------:|:-----------|-------------:|------------------:|-----------------:|:-------------------|---------------------:|:--------------|-----------------------:|----------------------:|
+|   2011 |       7 | Minnesota  |  5.34812e+06 |              3060 |          536.287 | severe weather     |                70000 | MRO           |            4.22806e+06 |               64.4275 |
+|   2014 |       5 | Minnesota  |  5.45712e+06 |                 1 |          536.287 | intentional attack |               143456 | MRO           |            3.69568e+06 |               69.938  |
+|   2010 |      10 | Minnesota  |  5.3109e+06  |              3000 |          536.287 | severe weather     |                70000 | MRO           |            3.75298e+06 |               71.867  |
+|   2012 |       6 | Minnesota  |  5.38044e+06 |              2550 |          536.287 | severe weather     |                68200 | MRO           |            3.9342e+06  |               67.9827 |
+|   2015 |       7 | Minnesota  |  5.48959e+06 |              1740 |          250     | severe weather     |               250000 | MRO           |            3.93955e+06 |               65.9853 |
 
 The aggregated dataframe above displays the average Industry Consumption, the average Industry Consumption Percentage, and the Outage Duration for each outage cause category.
 
